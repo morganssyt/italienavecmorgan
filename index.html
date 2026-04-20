@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Italien avec Morgan — Cours particuliers d'italien pour francophones</title>
+  <meta name="description" content="Apprenez le vrai italien avec Morgan, natif ligure, diplômé de l'Université de Turin. Cours particuliers 100% sur mesure. €40/heure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:   #009246;
+      --rosso:   #CE2B37;
+      --bianco:  #FFFFFF;
+      --nero:    #0d0d0d;
+      --grigio-scuro: #1a1a1a;
+      --grigio:  #f5f4f0;
+      --testo:   #2c2c2c;
+      --testo-chiaro: #6b6b6b;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+      --radius: 4px;
+      --shadow: 0 8px 40px rgba(0,0,0,.12);
+      --transition: .45s cubic-bezier(.25,.46,.45,.94);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--testo);
+      background: var(--bianco);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    /* ─── BARRE TRICOLORE ─── */
+    .tricolore {
+      display: flex;
+      height: 5px;
+      width: 100%;
+    }
+    .tricolore span {
+      flex: 1;
+    }
+    .tricolore .t-verde  { background: var(--verde); }
+    .tricolore .t-bianco { background: var(--bianco); border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+    .tricolore .t-rosso  { background: var(--rosso); }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    nav.scrolled {
+      background: rgba(10,10,10,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.25);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--bianco);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+
+    .nav-cta {
+      background: var(--verde);
+      color: var(--bianco);
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .5rem 1.2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: #007a38; transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('./images/colosseo.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.55) 0%,
+        rgba(0,0,0,.50) 60%,
+        rgba(0,0,0,.70) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      padding: 2rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '—';
+      margin: 0 .6em;
+      opacity: .5;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--bianco);
+      line-height: 1.12;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,.3);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: #6dffb3;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color: rgba(255,255,255,.8);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: var(--verde);
+      color: var(--bianco);
+      font-weight: 600;
+      font-size: .95rem;
+      letter-spacing: .04em;
+      padding: .9rem 2.2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .22s, transform .22s, box-shadow .22s;
+      box-shadow: 0 4px 20px rgba(0,146,70,.4);
+    }
+    .btn-primary:hover {
+      background: #007a38;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,146,70,.5);
+    }
+
+    .btn-arrow { font-size: 1.1em; transition: transform .2s; }
+    .btn-primary:hover .btn-arrow { transform: translateX(4px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: rgba(255,255,255,.45);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: .4; transform: scaleY(1); }
+      50%       { opacity: .9; transform: scaleY(1.2); }
+    }
+
+    /* ─── SECTION UTILITY ─── */
+    section { padding: 6rem 1.5rem; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--nero);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── FADE-IN ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s var(--transition), transform .7s var(--transition);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .45s; }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--bianco); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-frame {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .about-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform .6s var(--transition);
+    }
+
+    .about-img-frame:hover img { transform: scale(1.03); }
+
+    .about-accent {
+      position: absolute;
+      top: -18px; right: -18px;
+      width: 120px; height: 120px;
+      border: 3px solid var(--verde);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -20px; left: -20px;
+      background: var(--nero);
+      color: var(--bianco);
+      padding: 1rem 1.4rem;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: .95rem;
+      line-height: 1.4;
+      max-width: 200px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-text .section-title {
+      font-style: italic;
+    }
+
+    .about-text p {
+      color: var(--testo-chiaro);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .about-text p strong {
+      color: var(--testo);
+      font-weight: 600;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 2rem;
+    }
+
+    .tag {
+      background: var(--grigio);
+      color: var(--testo);
+      font-size: .78rem;
+      font-weight: 500;
+      padding: .4rem .9rem;
+      border-radius: 100px;
+      letter-spacing: .03em;
+    }
+
+    /* ─── MÉTHODE ─── */
+    #methode { background: var(--grigio); }
+
+    .methode-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .methode-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .methode-card {
+      background: var(--bianco);
+      padding: 2.5rem 2rem;
+      border-radius: 2px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+      border-top: 3px solid transparent;
+    }
+
+    .methode-card:nth-child(1) { border-top-color: var(--verde); }
+    .methode-card:nth-child(2) { border-top-color: var(--bianco); border-top-color: #bbb; }
+    .methode-card:nth-child(3) { border-top-color: var(--rosso); }
+
+    .methode-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: .8rem;
+      color: var(--nero);
+    }
+
+    .card-desc {
+      color: var(--testo-chiaro);
+      font-size: .95rem;
+      line-height: 1.75;
+    }
+
+    /* ─── PROGRAMME ─── */
+    #programme { background: var(--nero); color: var(--bianco); }
+
+    .programme-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .programme-header .section-label { color: rgba(255,255,255,.5); }
+    .programme-header .section-title { color: var(--bianco); margin-bottom: 0; }
+
+    .prix-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--verde);
+      color: var(--bianco);
+      padding: 1.2rem 2rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(0,146,70,.4);
+    }
+
+    .prix-montant {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .prix-label {
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .8;
+    }
+
+    .lecons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .lecon-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.4rem 1.6rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 2px;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .lecon-item:hover {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(0,146,70,.4);
+    }
+
+    .lecon-num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--verde);
+      line-height: 1;
+      min-width: 2rem;
+      text-align: right;
+      opacity: .8;
+    }
+
+    .lecon-body {}
+    .lecon-titre {
+      font-weight: 600;
+      font-size: .98rem;
+      margin-bottom: .3rem;
+      color: var(--bianco);
+    }
+    .lecon-desc {
+      font-size: .85rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.6;
+    }
+
+    /* ─── GALERIE ─── */
+    #galerie {
+      padding: 0;
+      background: var(--nero);
+    }
+
+    .galerie-band {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1.2fr;
+      height: 520px;
+    }
+
+    .galerie-item {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .galerie-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s var(--transition);
+      filter: saturate(.9) brightness(.92);
+    }
+
+    .galerie-item:hover img {
+      transform: scale(1.07);
+      filter: saturate(1.1) brightness(1);
+    }
+
+    .galerie-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.4) 0%, transparent 60%);
+    }
+
+    /* ─── TÉMOIGNAGES ─── */
+    #temoignages { background: var(--grigio); }
+    .temoignages-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .temoignages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .temoignage-card {
+      background: var(--bianco);
+      padding: 2.2rem;
+      border-radius: 2px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      position: relative;
+    }
+
+    .temoignage-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px; left: 1.5rem;
+      font-family: var(--serif);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--verde);
+      opacity: .2;
+    }
+
+    .etoiles {
+      color: #f5c518;
+      font-size: 1rem;
+      letter-spacing: .1em;
+      margin-bottom: 1rem;
+    }
+
+    .temoignage-texte {
+      font-size: .97rem;
+      color: var(--testo-chiaro);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    .temoignage-auteur {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+    }
+
+    .auteur-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--verde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bianco);
+      font-weight: 700;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+
+    .auteur-nom { font-weight: 600; font-size: .9rem; color: var(--nero); }
+    .auteur-pays { font-size: .8rem; color: var(--testo-chiaro); }
+
+    /* ─── CTA FINAL ─── */
+    #cta-final {
+      background: var(--grigio-scuro);
+      color: var(--bianco);
+      text-align: center;
+      padding: 7rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--verde) 33.33%, var(--bianco) 33.33%, var(--bianco) 66.66%, var(--rosso) 66.66%);
+    }
+
+    .cta-deco {
+      position: absolute;
+      font-size: 24rem;
+      font-family: var(--serif);
+      font-weight: 700;
+      color: rgba(255,255,255,.02);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+
+    .cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+
+    #cta-final .section-label { color: rgba(255,255,255,.4); }
+    #cta-final .section-title {
+      color: var(--bianco);
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-sub {
+      color: rgba(255,255,255,.55);
+      font-size: .9rem;
+      margin-top: 1.4rem;
+      letter-spacing: .03em;
+    }
+
+    .disponibilite {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 100px;
+      padding: .4rem 1rem;
+      font-size: .78rem;
+      color: rgba(255,255,255,.6);
+      margin-top: 1.6rem;
+      letter-spacing: .04em;
+    }
+
+    .dot-live {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,.5); }
+      50%       { opacity: .8; box-shadow: 0 0 0 6px rgba(74,222,128,0); }
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--nero);
+      color: rgba(255,255,255,.5);
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-brand {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--bianco);
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.45);
+      text-decoration: none;
+      font-size: .83rem;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--bianco); }
+
+    .footer-copy {
+      font-size: .78rem;
+      text-align: center;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding-top: 1.5rem;
+      margin-top: .5rem;
+    }
+
+    /* ─── DIVIDER ─── */
+    .section-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--verde);
+      margin: 1.2rem 0 2rem;
+    }
+
+    .section-divider.centered { margin-left: auto; margin-right: auto; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-wrap { max-width: 440px; margin: 0 auto; }
+      .methode-grid { grid-template-columns: 1fr; }
+      .lecons-grid { grid-template-columns: 1fr; }
+      .temoignages-grid { grid-template-columns: 1fr; }
+      .galerie-band { grid-template-columns: 1fr; height: auto; }
+      .galerie-item { height: 320px; }
+      .programme-header { flex-direction: column; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 4rem 1rem; }
+      .about-badge { display: none; }
+      .about-accent { top: -10px; right: -10px; width: 70px; height: 70px; }
+      .nav-inner { padding: 0 1rem; }
+      .hero-content { padding: 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ NAVIGATION ══ -->
+  <nav id="navbar">
+    <div class="tricolore">
+      <span class="t-verde"></span>
+      <span class="t-bianco"></span>
+      <span class="t-rosso"></span>
+    </div>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Italien avec Morgan</a>
+      <a href="#cta-final" class="nav-cta">Candidater <span style="margin-left:.2em">→</span></a>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow reveal">Cours particuliers d'italien</span>
+      <h1 class="hero-title reveal reveal-delay-1">
+        Apprends le <em>vrai</em> italien.<br>Avec un natif.
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Pas le manuel — le vrai, celui qu'on parle dans la rue.
+      </p>
+      <a href="#cta-final" class="btn-primary reveal reveal-delay-3">
+        Candidater pour une leçon
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Défiler</span>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+
+        <div class="about-img-wrap reveal">
+          <div class="about-img-frame">
+            <img src="./images/laurea.jpg" alt="Morgan en costume avec couronne de laurier et thèse de fin d'études" loading="lazy" />
+          </div>
+          <div class="about-accent"></div>
+          <div class="about-badge">
+            Lauréat de l'Université de Turin — Lettres &amp; Journalisme
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="section-label reveal">À propos</span>
+          <h2 class="section-title reveal reveal-delay-1">Je m'appelle Morgan.</h2>
+          <div class="section-divider reveal reveal-delay-1"></div>
+          <p class="reveal reveal-delay-2">
+            Je suis <strong>natif de Ligurie</strong>, diplômé de l'Université de Turin, journaliste de formation. Je vis à Imperia — à quarante minutes de la frontière française.
+          </p>
+          <p class="reveal reveal-delay-2">
+            Je <strong>parle français</strong>. Je connais vos blocages, vos confusions, vos faux amis. Je sais exactement pourquoi le subjonctif vous résiste — et comment vous l'expliquer en dix minutes.
+          </p>
+          <p class="reveal reveal-delay-3">
+            Mes cours ne ressemblent à aucun autre. Pas de manuel. Pas de tableau blanc. <strong>Juste vous, moi, et la langue telle qu'elle vit.</strong>
+          </p>
+          <div class="about-tags reveal reveal-delay-4">
+            <span class="tag">Natif ligure</span>
+            <span class="tag">Francophone</span>
+            <span class="tag">Journaliste</span>
+            <span class="tag">Diplômé de Turin</span>
+            <span class="tag">Imperia · Ligurie</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MÉTHODE ══ -->
+  <section id="methode">
+    <div class="section-inner">
+      <div class="methode-header">
+        <span class="section-label reveal">La méthode</span>
+        <h2 class="section-title reveal reveal-delay-1">Ce qui rend ces cours différents</h2>
+        <div class="section-divider centered reveal reveal-delay-1"></div>
+      </div>
+      <div class="methode-grid">
+
+        <div class="methode-card reveal reveal-delay-1">
+          <div class="card-icon">🗣️</div>
+          <h3 class="card-title">L'italien vrai</h3>
+          <p class="card-desc">
+            Pas celui des exercices de grammaire. L'argot, le registre soutenu, les expressions régionales, la façon dont les Italiens se parlent vraiment — entre eux, pas pour les touristes.
+          </p>
+        </div>
+
+        <div class="methode-card reveal reveal-delay-2">
+          <div class="card-icon">🍝</div>
+          <h3 class="card-title">Culture intégrée</h3>
+          <p class="card-desc">
+            Chaque leçon vit au-delà de la langue : histoire, cuisine, musique, cinéma, actualité italienne. Apprendre l'italien, c'est apprendre à penser à l'italienne.
+          </p>
+        </div>
+
+        <div class="methode-card reveal reveal-delay-3">
+          <div class="card-icon">🎯</div>
+          <h3 class="card-title">Sur mesure</h3>
+          <p class="card-desc">
+            Aucun programme identique pour deux élèves. Votre rythme, vos objectifs, votre vie — le cours s'adapte à vous, pas l'inverse.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROGRAMME ══ -->
+  <section id="programme">
+    <div class="section-inner">
+      <div class="programme-header">
+        <div>
+          <span class="section-label reveal">Le programme</span>
+          <h2 class="section-title reveal reveal-delay-1">10 leçons pour vraiment parler</h2>
+          <div class="section-divider reveal reveal-delay-1" style="background:rgba(255,255,255,.2);"></div>
+        </div>
+        <div class="prix-badge reveal reveal-delay-2">
+          <span class="prix-montant">€40</span>
+          <span class="prix-label">par heure</span>
+        </div>
+      </div>
+
+      <div class="lecons-grid">
+
+        <div class="lecon-item reveal reveal-delay-1">
+          <span class="lecon-num">01</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">On fait connaissance</div>
+            <div class="lecon-desc">Évaluation de votre niveau, définition de vos objectifs, construction de votre plan personnalisé.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-2">
+          <span class="lecon-num">02</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">La vie quotidienne italienne</div>
+            <div class="lecon-desc">Habitudes, rythmes, rituels — comment les Italiens vivent leur journée, et le vocabulaire qui va avec.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-1">
+          <span class="lecon-num">03</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">Au bar, au restaurant</div>
+            <div class="lecon-desc">Commander, discuter, apprécier — les codes sociaux et la langue de la table italienne.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-2">
+          <span class="lecon-num">04</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">Faire les courses et cuisiner</div>
+            <div class="lecon-desc">Marchés, produits, recettes — l'italien de la cuisine, ingrédient par ingrédient.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-1">
+          <span class="lecon-num">05</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">Voyager en Italie</div>
+            <div class="lecon-desc">Transports, hébergement, visites — naviguer dans le pays avec aisance et autonomie.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-2">
+          <span class="lecon-num">06</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">Le travail et les études</div>
+            <div class="lecon-desc">Vocabulaire professionnel et académique pour ceux qui ont des ambitions en Italie.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-1">
+          <span class="lecon-num">07</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">La famille et les relations</div>
+            <div class="lecon-desc">Parler de soi, de ses proches, des liens humains — la langue intime et affective.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-2">
+          <span class="lecon-num">08</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">Nord et Sud de l'Italie</div>
+            <div class="lecon-desc">Accents, dialectes, mentalités — comprendre un pays qui n'est pas monolithique.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-1">
+          <span class="lecon-num">09</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">Musique, cinéma et culture pop</div>
+            <div class="lecon-desc">Sanremo, Fellini, Sorrentino, Ghali — la culture italienne comme terrain d'apprentissage vivant.</div>
+          </div>
+        </div>
+
+        <div class="lecon-item reveal reveal-delay-2">
+          <span class="lecon-num">10</span>
+          <div class="lecon-body">
+            <div class="lecon-titre">Conversation libre + Bilan final</div>
+            <div class="lecon-desc">Vous parlez. Je vous écoute. On évalue ensemble votre progression et on définit la suite.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GALERIE ══ -->
+  <section id="galerie">
+    <div class="galerie-band">
+      <div class="galerie-item">
+        <img src="./images/colosseo.jpg" alt="Morgan devant le Colisée à Rome" loading="lazy" />
+        <div class="galerie-overlay"></div>
+      </div>
+      <div class="galerie-item">
+        <img src="./images/laurea.jpg" alt="Morgan le jour de sa laurea à l'Université de Turin" loading="lazy" />
+        <div class="galerie-overlay"></div>
+      </div>
+      <div class="galerie-item">
+        <img src="./images/vespa.jpg" alt="Morgan avec une Vespa devant une fontaine romaine" loading="lazy" />
+        <div class="galerie-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TÉMOIGNAGES ══ -->
+  <section id="temoignages">
+    <div class="section-inner">
+      <div class="temoignages-header">
+        <span class="section-label reveal">Ce qu'ils en disent</span>
+        <h2 class="section-title reveal reveal-delay-1">Des élèves qui parlent désormais</h2>
+        <div class="section-divider centered reveal reveal-delay-1"></div>
+      </div>
+
+      <div class="temoignages-grid">
+
+        <div class="temoignage-card reveal reveal-delay-1">
+          <div class="etoiles">★★★★★</div>
+          <p class="temoignage-texte">
+            "En six leçons avec Morgan, j'ai appris plus qu'en deux ans de cours collectifs. Il explique avec des mots simples, des exemples concrets — j'ai enfin l'impression de comprendre la langue, pas juste de la réciter."
+          </p>
+          <div class="temoignage-auteur">
+            <div class="auteur-avatar">C</div>
+            <div>
+              <div class="auteur-nom">Camille R.</div>
+              <div class="auteur-pays">Lyon, France</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="temoignage-card reveal reveal-delay-2">
+          <div class="etoiles">★★★★★</div>
+          <p class="temoignage-texte">
+            "Je devais partir travailler à Milan. J'avais peur. Après les cours de Morgan, je me suis installée sans aucun problème. Son approche culturelle m'a vraiment préparée — pas juste linguistiquement."
+          </p>
+          <div class="temoignage-auteur">
+            <div class="auteur-avatar">S</div>
+            <div>
+              <div class="auteur-nom">Sophie M.</div>
+              <div class="auteur-pays">Bruxelles, Belgique</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="temoignage-card reveal reveal-delay-3">
+          <div class="etoiles">★★★★★</div>
+          <p class="temoignage-texte">
+            "Ce qui m'a convaincu c'est qu'il parle français parfaitement — il sait exactement où on bloque, nous les francophones. Les cours sont denses, vivants, jamais ennuyeux. Je recommande à 100%."
+          </p>
+          <div class="temoignage-auteur">
+            <div class="auteur-avatar">A</div>
+            <div>
+              <div class="auteur-nom">Antoine D.</div>
+              <div class="auteur-pays">Genève, Suisse</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA FINAL ══ -->
+  <section id="cta-final">
+    <div class="cta-deco">Italia</div>
+    <div class="cta-inner">
+      <span class="section-label reveal">Passez à l'action</span>
+      <h2 class="section-title reveal reveal-delay-1">Prêt à parler<br><em>italien</em> ?</h2>
+      <div class="section-divider centered reveal reveal-delay-1" style="background: var(--verde);"></div>
+      <a href="https://www.preply.com" class="btn-primary reveal reveal-delay-2" target="_blank" rel="noopener">
+        Candidater maintenant
+        <span class="btn-arrow">→</span>
+      </a>
+      <div class="reveal reveal-delay-3">
+        <div class="disponibilite">
+          <span class="dot-live"></span>
+          Peu de places disponibles — je réponds sous 24 heures.
+        </div>
+      </div>
+      <p class="cta-sub reveal reveal-delay-4">Aucun engagement. Juste une conversation pour voir si on se convient.</p>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="tricolore">
+      <span class="t-verde"></span>
+      <span class="t-bianco"></span>
+      <span class="t-rosso"></span>
+    </div>
+    <div style="height: 2rem;"></div>
+    <div class="footer-inner">
+      <a href="#" class="footer-brand">Italien avec Morgan</a>
+      <ul class="footer-links">
+        <li><a href="https://www.preply.com" target="_blank" rel="noopener">Preply</a></li>
+        <li><a href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a></li>
+        <li><a href="https://linktr.ee" target="_blank" rel="noopener">LinkTree</a></li>
+        <li><a href="https://instagram.com/italienavecmorgan" target="_blank" rel="noopener">@italienavecmorgan</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">
+      © 2025 Italien avec Morgan · Imperia, Ligurie · Tous droits réservés
+    </div>
+  </footer>
+
+  <script>
+    // ─── NAV SCROLL ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── HERO BG LOAD ───
+    const heroBg = document.getElementById('heroBg');
+    const heroImg = new Image();
+    heroImg.onload = () => heroBg.classList.add('loaded');
+    heroImg.src = './images/colosseo.jpg';
+
+    // ─── SCROLL REVEAL ───
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // ─── HERO PARALLAX (subtle) ───
+    const heroBgEl = document.querySelector('.hero-bg');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroBgEl.style.transform = `scale(1) translateY(${y * 0.22}px)`;
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
