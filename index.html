@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Italien avec Morgan — Cours particuliers d'italien pour francophones</title>
-  <meta name="description" content="Apprenez le vrai italien avec Morgan, natif ligure, diplômé de l'Université de Turin. Cours particuliers 100% sur mesure. €40/heure." />
+  <meta name="description" content="Apprends le vrai italien avec Morgan, natif de Ligurie, diplômé de l'Université de Turin. Cours particuliers 100% sur mesure." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -47,9 +47,7 @@
       height: 5px;
       width: 100%;
     }
-    .tricolore span {
-      flex: 1;
-    }
+    .tricolore span { flex: 1; }
     .tricolore .t-verde  { background: var(--verde); }
     .tricolore .t-bianco { background: var(--bianco); border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
     .tricolore .t-rosso  { background: var(--rosso); }
@@ -237,7 +235,7 @@
     }
 
     /* ─── SECTION UTILITY ─── */
-    section { padding: 6rem 1.5rem; }
+    section { padding: 8rem 1.5rem; }
 
     .section-inner {
       max-width: 1100px;
@@ -288,9 +286,7 @@
       align-items: center;
     }
 
-    .about-img-wrap {
-      position: relative;
-    }
+    .about-img-wrap { position: relative; }
 
     .about-img-frame {
       position: relative;
@@ -332,9 +328,7 @@
       box-shadow: var(--shadow);
     }
 
-    .about-text .section-title {
-      font-style: italic;
-    }
+    .about-text .section-title { font-style: italic; }
 
     .about-text p {
       color: var(--testo-chiaro);
@@ -348,23 +342,6 @@
       font-weight: 600;
     }
 
-    .about-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-      margin-top: 2rem;
-    }
-
-    .tag {
-      background: var(--grigio);
-      color: var(--testo);
-      font-size: .78rem;
-      font-weight: 500;
-      padding: .4rem .9rem;
-      border-radius: 100px;
-      letter-spacing: .03em;
-    }
-
     /* ─── MÉTHODE ─── */
     #methode { background: var(--grigio); }
 
@@ -372,7 +349,7 @@
 
     .methode-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }
 
@@ -386,18 +363,16 @@
     }
 
     .methode-card:nth-child(1) { border-top-color: var(--verde); }
-    .methode-card:nth-child(2) { border-top-color: var(--bianco); border-top-color: #bbb; }
+    .methode-card:nth-child(2) { border-top-color: #9b8ea0; }
     .methode-card:nth-child(3) { border-top-color: var(--rosso); }
+    .methode-card:nth-child(4) { border-top-color: #e8a020; }
 
     .methode-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 16px 40px rgba(0,0,0,.12);
     }
 
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
+    .card-icon { font-size: 2rem; margin-bottom: 1.2rem; }
 
     .card-title {
       font-family: var(--serif);
@@ -413,91 +388,159 @@
       line-height: 1.75;
     }
 
-    /* ─── PROGRAMME ─── */
-    #programme { background: var(--nero); color: var(--bianco); }
+    /* ─── FORMULES ─── */
+    #formules { background: var(--nero); color: var(--bianco); }
 
-    .programme-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 2rem;
+    .formules-header { text-align: center; margin-bottom: 1.5rem; }
+    .formules-header .section-label { color: rgba(255,255,255,.5); }
+    .formules-header .section-title { color: var(--bianco); }
+
+    .offre-banner {
+      text-align: center;
+      background: rgba(0,146,70,.15);
+      border: 1px solid rgba(0,146,70,.4);
+      color: rgba(255,255,255,.9);
+      font-size: .95rem;
+      letter-spacing: .02em;
+      padding: 1rem 2rem;
+      border-radius: var(--radius);
       margin-bottom: 3.5rem;
-      flex-wrap: wrap;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .programme-header .section-label { color: rgba(255,255,255,.5); }
-    .programme-header .section-title { color: var(--bianco); margin-bottom: 0; }
+    .formules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
 
-    .prix-badge {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .formule-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .formule-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    }
+
+    .formule-card.formule-star {
+      background: rgba(0,146,70,.08);
+      border-color: var(--verde);
+      transform: scale(1.03);
+    }
+
+    .formule-card.formule-star:hover {
+      transform: scale(1.05);
+      box-shadow: 0 24px 60px rgba(0,146,70,.3);
+    }
+
+    .formule-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
       background: var(--verde);
       color: var(--bianco);
-      padding: 1.2rem 2rem;
-      border-radius: 2px;
-      flex-shrink: 0;
-      box-shadow: 0 4px 20px rgba(0,146,70,.4);
-    }
-
-    .prix-montant {
-      font-family: var(--serif);
-      font-size: 2.4rem;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .prix-label {
       font-size: .75rem;
-      letter-spacing: .12em;
+      font-weight: 700;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      opacity: .8;
+      padding: .3rem 1rem;
+      border-radius: 100px;
+      white-space: nowrap;
     }
 
-    .lecons-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .lecon-item {
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-      padding: 1.4rem 1.6rem;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 2px;
-      transition: background var(--transition), border-color var(--transition);
-    }
-
-    .lecon-item:hover {
-      background: rgba(255,255,255,.07);
-      border-color: rgba(0,146,70,.4);
-    }
-
-    .lecon-num {
+    .formule-nom {
       font-family: var(--serif);
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--bianco);
+      margin-bottom: .8rem;
+    }
+
+    .formule-prix {
+      font-family: var(--serif);
+      font-size: 2.8rem;
       font-weight: 700;
       color: var(--verde);
       line-height: 1;
-      min-width: 2rem;
-      text-align: right;
-      opacity: .8;
+      margin-bottom: .4rem;
     }
 
-    .lecon-body {}
-    .lecon-titre {
-      font-weight: 600;
-      font-size: .98rem;
-      margin-bottom: .3rem;
-      color: var(--bianco);
+    .formule-prix span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.5);
+      font-family: var(--sans);
     }
-    .lecon-desc {
+
+    .formule-format {
       font-size: .85rem;
       color: rgba(255,255,255,.5);
-      line-height: 1.6;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .formule-pour {
+      font-size: .95rem;
+      color: rgba(255,255,255,.7);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    .formule-inclus {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .formule-inclus li {
+      font-size: .9rem;
+      color: rgba(255,255,255,.6);
+      padding: .35rem 0;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .formule-inclus li::before {
+      content: '✓';
+      color: var(--verde);
+      font-weight: 700;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+
+    .btn-formule {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--verde);
+      color: var(--bianco);
+      font-weight: 600;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      padding: .85rem 1.5rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+
+    .btn-formule:hover {
+      background: #007a38;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0,146,70,.4);
     }
 
     /* ─── GALERIE ─── */
@@ -603,12 +646,12 @@
     .auteur-nom { font-weight: 600; font-size: .9rem; color: var(--nero); }
     .auteur-pays { font-size: .8rem; color: var(--testo-chiaro); }
 
-    /* ─── CTA FINAL ─── */
+    /* ─── CTA FINAL / FORMULAIRE ─── */
     #cta-final {
       background: var(--grigio-scuro);
       color: var(--bianco);
       text-align: center;
-      padding: 7rem 1.5rem;
+      padding: 8rem 1.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -636,13 +679,143 @@
       white-space: nowrap;
     }
 
-    .cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .cta-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
 
     #cta-final .section-label { color: rgba(255,255,255,.4); }
     #cta-final .section-title {
       color: var(--bianco);
       font-size: clamp(2.2rem, 4.5vw, 3.5rem);
       margin-bottom: 1rem;
+    }
+    #cta-final .section-title em { font-style: italic; color: #6dffb3; }
+
+    /* ─── FORM ─── */
+    .candidature-form {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 0;
+    }
+
+    .form-group:not(:last-child) { margin-bottom: 0; }
+
+    .form-group-full {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label,
+    .form-group-full label {
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .form-group-full textarea {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius);
+      color: var(--bianco);
+      font-family: var(--sans);
+      font-size: .95rem;
+      padding: .75rem 1rem;
+      transition: border-color .2s, background .2s;
+      width: 100%;
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder,
+    .form-group-full textarea::placeholder {
+      color: rgba(255,255,255,.3);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus,
+    .form-group-full textarea:focus {
+      border-color: var(--verde);
+      background: rgba(0,146,70,.08);
+    }
+
+    .form-group select option {
+      background: #222;
+      color: var(--bianco);
+    }
+
+    .form-group-full {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group-full label {
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+
+    textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: var(--verde);
+      color: var(--bianco);
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: .04em;
+      padding: .95rem 2.4rem;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background .22s, transform .22s, box-shadow .22s;
+      box-shadow: 0 4px 20px rgba(0,146,70,.4);
+      margin-top: .5rem;
+    }
+
+    .btn-submit:hover {
+      background: #007a38;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,146,70,.5);
+    }
+
+    .form-success {
+      background: rgba(0,146,70,.15);
+      border: 1px solid rgba(0,146,70,.5);
+      color: #6dffb3;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      padding: 1.5rem 2rem;
+      border-radius: var(--radius);
+      margin: 1.5rem 0;
+      text-align: center;
     }
 
     .cta-sub {
@@ -743,21 +916,23 @@
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-img-wrap { max-width: 440px; margin: 0 auto; }
       .methode-grid { grid-template-columns: 1fr; }
-      .lecons-grid { grid-template-columns: 1fr; }
+      .formules-grid { grid-template-columns: 1fr; }
+      .formule-card.formule-star { transform: none; }
       .temoignages-grid { grid-template-columns: 1fr; }
       .galerie-band { grid-template-columns: 1fr; height: auto; }
       .galerie-item { height: 320px; }
-      .programme-header { flex-direction: column; }
       .footer-inner { flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; }
     }
 
     @media (max-width: 600px) {
-      section { padding: 4rem 1rem; }
+      section { padding: 5rem 1rem; }
       .about-badge { display: none; }
       .about-accent { top: -10px; right: -10px; width: 70px; height: 70px; }
       .nav-inner { padding: 0 1rem; }
       .hero-content { padding: 1.2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .candidature-form { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -784,10 +959,10 @@
     <div class="hero-content">
       <span class="hero-eyebrow reveal">Cours particuliers d'italien</span>
       <h1 class="hero-title reveal reveal-delay-1">
-        Apprends le <em>vrai</em> italien.<br>Avec un natif.
+        Apprends l'italien.<br>Avec <em>Morgan</em>.
       </h1>
       <p class="hero-sub reveal reveal-delay-2">
-        Pas le manuel — le vrai, celui qu'on parle dans la rue.
+        Pas le manuel — le vrai, celui qu'on parle.
       </p>
       <a href="#cta-final" class="btn-primary reveal reveal-delay-3">
         Candidater pour une leçon
@@ -820,7 +995,7 @@
           <h2 class="section-title reveal reveal-delay-1">Je m'appelle Morgan.</h2>
           <div class="section-divider reveal reveal-delay-1"></div>
           <p class="reveal reveal-delay-2">
-            Je suis <strong>natif de Ligurie</strong>, diplômé de l'Université de Turin, journaliste de formation. Je vis à Imperia — à quarante minutes de la frontière française.
+            Je suis <strong>natif de Ligurie</strong>, diplômé de l'Université de Turin, journaliste de formation. Je vis en Ligurie — à quarante minutes de la frontière française.
           </p>
           <p class="reveal reveal-delay-2">
             Je <strong>parle français</strong>. Je connais vos blocages, vos confusions, vos faux amis. Je sais exactement pourquoi le subjonctif vous résiste — et comment vous l'expliquer en dix minutes.
@@ -828,13 +1003,6 @@
           <p class="reveal reveal-delay-3">
             Mes cours ne ressemblent à aucun autre. Pas de manuel. Pas de tableau blanc. <strong>Juste vous, moi, et la langue telle qu'elle vit.</strong>
           </p>
-          <div class="about-tags reveal reveal-delay-4">
-            <span class="tag">Natif ligure</span>
-            <span class="tag">Francophone</span>
-            <span class="tag">Journaliste</span>
-            <span class="tag">Diplômé de Turin</span>
-            <span class="tag">Imperia · Ligurie</span>
-          </div>
         </div>
 
       </div>
@@ -852,26 +1020,34 @@
       <div class="methode-grid">
 
         <div class="methode-card reveal reveal-delay-1">
-          <div class="card-icon">🗣️</div>
-          <h3 class="card-title">L'italien vrai</h3>
+          <div class="card-icon">🎯</div>
+          <h3 class="card-title">L'italien vivant</h3>
           <p class="card-desc">
-            Pas celui des exercices de grammaire. L'argot, le registre soutenu, les expressions régionales, la façon dont les Italiens se parlent vraiment — entre eux, pas pour les touristes.
+            On parle dès la première minute. Pas d'exercices de grammaire à froid. La langue s'apprend en la parlant.
           </p>
         </div>
 
         <div class="methode-card reveal reveal-delay-2">
-          <div class="card-icon">🍝</div>
+          <div class="card-icon">🇮🇹</div>
           <h3 class="card-title">Culture intégrée</h3>
           <p class="card-desc">
-            Chaque leçon vit au-delà de la langue : histoire, cuisine, musique, cinéma, actualité italienne. Apprendre l'italien, c'est apprendre à penser à l'italienne.
+            Chaque leçon inclut quelque chose de vrai : un geste, un plat, une expression, une histoire. L'italien ne s'apprend pas sans l'Italie.
           </p>
         </div>
 
         <div class="methode-card reveal reveal-delay-3">
-          <div class="card-icon">🎯</div>
+          <div class="card-icon">✂️</div>
           <h3 class="card-title">Sur mesure</h3>
           <p class="card-desc">
-            Aucun programme identique pour deux élèves. Votre rythme, vos objectifs, votre vie — le cours s'adapte à vous, pas l'inverse.
+            Ton niveau, tes objectifs, ton rythme. Aucune leçon n'est identique à une autre.
+          </p>
+        </div>
+
+        <div class="methode-card reveal reveal-delay-4">
+          <div class="card-icon">🔁</div>
+          <h3 class="card-title">Feedback constant</h3>
+          <p class="card-desc">
+            Je corrige en temps réel, sans te couper. Tu apprends à te corriger toi-même.
           </p>
         </div>
 
@@ -879,101 +1055,56 @@
     </div>
   </section>
 
-  <!-- ══ PROGRAMME ══ -->
-  <section id="programme">
+  <!-- ══ FORMULES ══ -->
+  <section id="formules">
     <div class="section-inner">
-      <div class="programme-header">
-        <div>
-          <span class="section-label reveal">Le programme</span>
-          <h2 class="section-title reveal reveal-delay-1">10 leçons pour vraiment parler</h2>
-          <div class="section-divider reveal reveal-delay-1" style="background:rgba(255,255,255,.2);"></div>
-        </div>
-        <div class="prix-badge reveal reveal-delay-2">
-          <span class="prix-montant">€40</span>
-          <span class="prix-label">par heure</span>
-        </div>
+      <div class="formules-header">
+        <span class="section-label reveal">Les formules</span>
+        <h2 class="section-title reveal reveal-delay-1">Choisis ton rythme</h2>
+        <div class="section-divider centered reveal reveal-delay-1" style="background:rgba(255,255,255,.2);"></div>
       </div>
 
-      <div class="lecons-grid">
+      <div class="offre-banner reveal reveal-delay-2">
+        ✨ Premiers 25 minutes offerts — un appel pour se connaître et définir ton plan.
+      </div>
 
-        <div class="lecon-item reveal reveal-delay-1">
-          <span class="lecon-num">01</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">On fait connaissance</div>
-            <div class="lecon-desc">Évaluation de votre niveau, définition de vos objectifs, construction de votre plan personnalisé.</div>
-          </div>
+      <div class="formules-grid">
+
+        <div class="formule-card reveal reveal-delay-1">
+          <div class="formule-nom">Découverte</div>
+          <div class="formule-prix">€40</div>
+          <div class="formule-format">1 leçon</div>
+          <p class="formule-pour">Pour tester l'approche</p>
+          <ul class="formule-inclus">
+            <li>Matériaux inclus</li>
+            <li>Correction personnalisée</li>
+          </ul>
+          <a href="#cta-final" class="btn-formule">Candidater →</a>
         </div>
 
-        <div class="lecon-item reveal reveal-delay-2">
-          <span class="lecon-num">02</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">La vie quotidienne italienne</div>
-            <div class="lecon-desc">Habitudes, rythmes, rituels — comment les Italiens vivent leur journée, et le vocabulaire qui va avec.</div>
-          </div>
+        <div class="formule-card formule-star reveal reveal-delay-2">
+          <div class="formule-badge">Le plus choisi ✨</div>
+          <div class="formule-nom">Régulier</div>
+          <div class="formule-prix">€160<span>/mois</span></div>
+          <div class="formule-format">4 leçons / mois</div>
+          <p class="formule-pour">Pour progresser régulièrement</p>
+          <ul class="formule-inclus">
+            <li>Tout inclus</li>
+            <li>Compito corretto</li>
+          </ul>
+          <a href="#cta-final" class="btn-formule">Candidater →</a>
         </div>
 
-        <div class="lecon-item reveal reveal-delay-1">
-          <span class="lecon-num">03</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">Au bar, au restaurant</div>
-            <div class="lecon-desc">Commander, discuter, apprécier — les codes sociaux et la langue de la table italienne.</div>
-          </div>
-        </div>
-
-        <div class="lecon-item reveal reveal-delay-2">
-          <span class="lecon-num">04</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">Faire les courses et cuisiner</div>
-            <div class="lecon-desc">Marchés, produits, recettes — l'italien de la cuisine, ingrédient par ingrédient.</div>
-          </div>
-        </div>
-
-        <div class="lecon-item reveal reveal-delay-1">
-          <span class="lecon-num">05</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">Voyager en Italie</div>
-            <div class="lecon-desc">Transports, hébergement, visites — naviguer dans le pays avec aisance et autonomie.</div>
-          </div>
-        </div>
-
-        <div class="lecon-item reveal reveal-delay-2">
-          <span class="lecon-num">06</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">Le travail et les études</div>
-            <div class="lecon-desc">Vocabulaire professionnel et académique pour ceux qui ont des ambitions en Italie.</div>
-          </div>
-        </div>
-
-        <div class="lecon-item reveal reveal-delay-1">
-          <span class="lecon-num">07</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">La famille et les relations</div>
-            <div class="lecon-desc">Parler de soi, de ses proches, des liens humains — la langue intime et affective.</div>
-          </div>
-        </div>
-
-        <div class="lecon-item reveal reveal-delay-2">
-          <span class="lecon-num">08</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">Nord et Sud de l'Italie</div>
-            <div class="lecon-desc">Accents, dialectes, mentalités — comprendre un pays qui n'est pas monolithique.</div>
-          </div>
-        </div>
-
-        <div class="lecon-item reveal reveal-delay-1">
-          <span class="lecon-num">09</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">Musique, cinéma et culture pop</div>
-            <div class="lecon-desc">Sanremo, Fellini, Sorrentino, Ghali — la culture italienne comme terrain d'apprentissage vivant.</div>
-          </div>
-        </div>
-
-        <div class="lecon-item reveal reveal-delay-2">
-          <span class="lecon-num">10</span>
-          <div class="lecon-body">
-            <div class="lecon-titre">Conversation libre + Bilan final</div>
-            <div class="lecon-desc">Vous parlez. Je vous écoute. On évalue ensemble votre progression et on définit la suite.</div>
-          </div>
+        <div class="formule-card reveal reveal-delay-3">
+          <div class="formule-nom">Intensif</div>
+          <div class="formule-prix">€280<span>/mois</span></div>
+          <div class="formule-format">8 leçons / mois</div>
+          <p class="formule-pour">Pour des résultats rapides</p>
+          <ul class="formule-inclus">
+            <li>Tout inclus</li>
+            <li>Support WhatsApp</li>
+          </ul>
+          <a href="#cta-final" class="btn-formule">Candidater →</a>
         </div>
 
       </div>
@@ -1055,17 +1186,64 @@
     </div>
   </section>
 
-  <!-- ══ CTA FINAL ══ -->
+  <!-- ══ CANDIDATURE ══ -->
   <section id="cta-final">
     <div class="cta-deco">Italia</div>
     <div class="cta-inner">
       <span class="section-label reveal">Passez à l'action</span>
-      <h2 class="section-title reveal reveal-delay-1">Prêt à parler<br><em>italien</em> ?</h2>
+      <h2 class="section-title reveal reveal-delay-1">Prêt à parler<br><em>l'italien</em> ?</h2>
       <div class="section-divider centered reveal reveal-delay-1" style="background: var(--verde);"></div>
-      <a href="https://www.preply.com" class="btn-primary reveal reveal-delay-2" target="_blank" rel="noopener">
-        Candidater maintenant
-        <span class="btn-arrow">→</span>
-      </a>
+
+      <form
+        action="https://formspree.io/f/mqewwqwr"
+        method="POST"
+        class="candidature-form reveal reveal-delay-2"
+        id="contactForm"
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prenom">Prénom *</label>
+            <input type="text" id="prenom" name="prenom" required placeholder="Ton prénom" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="ton@email.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="niveau">Niveau actuel</label>
+            <select id="niveau" name="niveau">
+              <option value="">Sélectionner…</option>
+              <option value="debutant">Débutant</option>
+              <option value="intermediaire">Intermédiaire</option>
+              <option value="avance">Avancé</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="objectif">Objectif</label>
+            <select id="objectif" name="objectif">
+              <option value="">Sélectionner…</option>
+              <option value="voyage">Voyage</option>
+              <option value="travail">Travail</option>
+              <option value="culture">Culture</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group-full">
+          <label for="message">Message (optionnel)</label>
+          <textarea id="message" name="message" rows="4" placeholder="Parle-moi de toi, de ton niveau, de tes objectifs…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          Envoyer ma candidature →
+        </button>
+      </form>
+
+      <div id="form-success" class="form-success" style="display:none;">
+        Merci ! Je te réponds sous 24 heures 🍋
+      </div>
+
       <div class="reveal reveal-delay-3">
         <div class="disponibilite">
           <span class="dot-live"></span>
@@ -1087,14 +1265,13 @@
     <div class="footer-inner">
       <a href="#" class="footer-brand">Italien avec Morgan</a>
       <ul class="footer-links">
-        <li><a href="https://www.preply.com" target="_blank" rel="noopener">Preply</a></li>
         <li><a href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a></li>
         <li><a href="https://linktr.ee" target="_blank" rel="noopener">LinkTree</a></li>
         <li><a href="https://instagram.com/italienavecmorgan" target="_blank" rel="noopener">@italienavecmorgan</a></li>
       </ul>
     </div>
     <div class="footer-copy">
-      © 2025 Italien avec Morgan · Imperia, Ligurie · Tous droits réservés
+      © 2025 Italien avec Morgan · Ligurie · Tous droits réservés
     </div>
   </footer>
 
@@ -1128,7 +1305,7 @@
 
     revealEls.forEach(el => observer.observe(el));
 
-    // ─── HERO PARALLAX (subtle) ───
+    // ─── HERO PARALLAX ───
     const heroBgEl = document.querySelector('.hero-bg');
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
@@ -1136,6 +1313,37 @@
         heroBgEl.style.transform = `scale(1) translateY(${y * 0.22}px)`;
       }
     }, { passive: true });
+
+    // ─── FORM AJAX (Formspree) ───
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('form-success');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const btn = form.querySelector('.btn-submit');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        } else {
+          btn.textContent = 'Erreur — réessaie';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Erreur réseau — réessaie';
+        btn.disabled = false;
+      }
+    });
   </script>
 
 </body>
