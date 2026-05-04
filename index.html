@@ -276,6 +276,125 @@
     .reveal-delay-3 { transition-delay: .3s; }
     .reveal-delay-4 { transition-delay: .45s; }
 
+    /* ─── GUIDE GRATUIT ─── */
+    #guide-gratuit {
+      background: #faf7f0;
+      border-top: 1px solid #d4af6a;
+      border-bottom: 1px solid #d4af6a;
+      padding: 6rem 1.5rem;
+    }
+
+    .guide-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .guide-tricolore {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .guide-tricolore .gt-bar {
+      height: 4px;
+      width: 40px;
+    }
+
+    .guide-tricolore .gt-verde  { background: var(--verde); }
+    .guide-tricolore .gt-bianco { background: #ddd; }
+    .guide-tricolore .gt-rosso  { background: var(--rosso); }
+
+    .guide-title {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--nero);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .guide-desc {
+      font-size: 1.05rem;
+      color: var(--testo-chiaro);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-family: var(--serif);
+      font-style: italic;
+    }
+
+    .guide-form {
+      display: flex;
+      gap: .8rem;
+      max-width: 480px;
+      margin: 0 auto 1rem;
+    }
+
+    .guide-form input[type="email"] {
+      flex: 1;
+      border: 1px solid #d4af6a;
+      border-radius: var(--radius);
+      padding: .8rem 1.1rem;
+      font-family: var(--sans);
+      font-size: .95rem;
+      background: #fff;
+      color: var(--testo);
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .guide-form input[type="email"]:focus {
+      border-color: var(--verde);
+    }
+
+    .guide-form input[type="email"]::placeholder {
+      color: #bbb;
+    }
+
+    .btn-guide {
+      background: var(--verde);
+      color: var(--bianco);
+      font-weight: 600;
+      font-size: .9rem;
+      letter-spacing: .03em;
+      padding: .8rem 1.4rem;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s, transform .2s;
+      box-shadow: 0 4px 16px rgba(0,146,70,.35);
+    }
+
+    .btn-guide:hover {
+      background: #007a38;
+      transform: translateY(-1px);
+    }
+
+    .guide-disclaimer {
+      font-size: .8rem;
+      color: #aaa;
+      letter-spacing: .02em;
+    }
+
+    .guide-success {
+      background: rgba(0,146,70,.1);
+      border: 1px solid rgba(0,146,70,.4);
+      color: var(--verde);
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      padding: 1.2rem 1.8rem;
+      border-radius: var(--radius);
+      display: none;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .guide-form { flex-direction: column; }
+    }
+
     /* ─── ABOUT ─── */
     #about { background: var(--bianco); }
 
@@ -975,6 +1094,37 @@
     </div>
   </section>
 
+  <!-- ══ GUIDE GRATUIT ══ -->
+  <section id="guide-gratuit">
+    <div class="guide-inner">
+      <div class="guide-tricolore reveal">
+        <div class="gt-bar gt-verde"></div>
+        <div class="gt-bar gt-bianco"></div>
+        <div class="gt-bar gt-rosso"></div>
+      </div>
+      <h2 class="guide-title reveal reveal-delay-1">Un cadeau avant de commencer</h2>
+      <p class="guide-desc reveal reveal-delay-2">
+        J'ai écrit un guide — <strong style="font-style:normal;">Le Vocabulaire essentiel pour voyager en Italie</strong>.<br>
+        Les mots qu'on utilise au bar, au restaurant, dans la rue.<br>
+        Je te l'envoie gratuitement.
+      </p>
+      <form
+        action="https://formspree.io/f/TON_ID"
+        method="POST"
+        class="guide-form reveal reveal-delay-3"
+        id="guideForm"
+      >
+        <input type="hidden" name="_replyto" value="morgan.germinario@gmail.com" />
+        <input type="email" name="email" required placeholder="ton@email.com" />
+        <button type="submit" class="btn-guide">Je veux le guide →</button>
+      </form>
+      <div id="guide-success" class="guide-success">
+        C'est envoyé ! Vérifie ta boîte dans quelques minutes 🍋
+      </div>
+      <p class="guide-disclaimer reveal reveal-delay-4">Aucun spam. Juste le guide, directement dans ta boîte.</p>
+    </div>
+  </section>
+
   <!-- ══ ABOUT ══ -->
   <section id="about">
     <div class="section-inner">
@@ -995,13 +1145,14 @@
           <h2 class="section-title reveal reveal-delay-1">Je m'appelle Morgan.</h2>
           <div class="section-divider reveal reveal-delay-1"></div>
           <p class="reveal reveal-delay-2">
-            Je suis <strong>natif de Ligurie</strong>, diplômé de l'Université de Turin, journaliste de formation. Je vis en Ligurie — à quarante minutes de la frontière française.
+            Je suis <strong>italien, ligure</strong>, pour être précis.<br>
+            J'ai créé Italien avec Morgan.
           </p>
           <p class="reveal reveal-delay-2">
-            Je <strong>parle français</strong>. Je connais vos blocages, vos confusions, vos faux amis. Je sais exactement pourquoi le subjonctif vous résiste — et comment vous l'expliquer en dix minutes.
+            Pour transmettre aux francophones ce que j'aime dans cette langue : la musique, la prose, l'architecture qui raconte deux mille ans d'histoire.
           </p>
           <p class="reveal reveal-delay-3">
-            Mes cours ne ressemblent à aucun autre. Pas de manuel. Pas de tableau blanc. <strong>Juste vous, moi, et la langue telle qu'elle vit.</strong>
+            L'italien, comme le français, est une langue qui se porte. On la chante, on la discute, on l'aime. <strong>Mon travail, c'est de te faire ressentir ça.</strong>
           </p>
         </div>
 
@@ -1065,14 +1216,14 @@
       </div>
 
       <div class="offre-banner reveal reveal-delay-2">
-        ✨ Premiers 25 minutes offerts — un appel pour se connaître et définir ton plan.
+        ✨ Les premiers 25 minutes sont toujours offerts — pour se connaître, faire le plan, et voir si on est faits l'un pour l'autre.
       </div>
 
       <div class="formules-grid">
 
         <div class="formule-card reveal reveal-delay-1">
           <div class="formule-nom">Découverte</div>
-          <div class="formule-prix">€40</div>
+          <div class="formule-prix">€35</div>
           <div class="formule-format">1 leçon</div>
           <p class="formule-pour">Pour tester l'approche</p>
           <ul class="formule-inclus">
@@ -1085,7 +1236,7 @@
         <div class="formule-card formule-star reveal reveal-delay-2">
           <div class="formule-badge">Le plus choisi ✨</div>
           <div class="formule-nom">Régulier</div>
-          <div class="formule-prix">€160<span>/mois</span></div>
+          <div class="formule-prix">€140<span>/mois</span></div>
           <div class="formule-format">4 leçons / mois</div>
           <p class="formule-pour">Pour progresser régulièrement</p>
           <ul class="formule-inclus">
@@ -1313,6 +1464,37 @@
         heroBgEl.style.transform = `scale(1) translateY(${y * 0.22}px)`;
       }
     }, { passive: true });
+
+    // ─── GUIDE FORM AJAX ───
+    const guideForm = document.getElementById('guideForm');
+    const guideSuccess = document.getElementById('guide-success');
+
+    guideForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(guideForm);
+      const btn = guideForm.querySelector('.btn-guide');
+      btn.textContent = 'Envoi…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(guideForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          guideForm.style.display = 'none';
+          guideSuccess.style.display = 'block';
+        } else {
+          btn.textContent = 'Erreur — réessaie';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Erreur réseau — réessaie';
+        btn.disabled = false;
+      }
+    });
 
     // ─── FORM AJAX (Formspree) ───
     const form = document.getElementById('contactForm');
