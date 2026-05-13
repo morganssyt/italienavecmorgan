@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('V34KluSaNSYIgxK2a');
+  </script>
 
   <style>
     /* ─── RESET & BASE ─── */
@@ -389,6 +393,27 @@
       border-radius: var(--radius);
       display: none;
       margin-top: 1rem;
+    }
+
+    /* ─── GUIDE PHOTO ─── */
+    .guide-photo {
+      margin-bottom: 2rem;
+    }
+
+    .guide-photo img {
+      width: 180px;
+      border-radius: 8px;
+      margin: 0 auto;
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+    }
+
+    .guide-photo-name {
+      text-align: center;
+      color: var(--testo-chiaro);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: .85rem;
+      margin-top: .7rem;
     }
 
     @media (max-width: 600px) {
@@ -1102,6 +1127,10 @@
         <div class="gt-bar gt-bianco"></div>
         <div class="gt-bar gt-rosso"></div>
       </div>
+      <div class="guide-photo reveal">
+        <img src="./images/guide-cover.jpg" alt="Guide — Vocabulaire essentiel pour voyager en Italie" />
+        <p class="guide-photo-name">Guide offert · 11 pages</p>
+      </div>
       <h2 class="guide-title reveal reveal-delay-1">Un cadeau avant de commencer</h2>
       <p class="guide-desc reveal reveal-delay-2">
         J'ai écrit un guide — <strong style="font-style:normal;">Le Vocabulaire essentiel pour voyager en Italie</strong>.<br>
@@ -1109,12 +1138,9 @@
         Je te l'envoie gratuitement.
       </p>
       <form
-        action="https://formspree.io/f/TON_ID"
-        method="POST"
         class="guide-form reveal reveal-delay-3"
         id="guideForm"
       >
-        <input type="hidden" name="_replyto" value="morgan.germinario@gmail.com" />
         <input type="email" name="email" required placeholder="ton@email.com" />
         <button type="submit" class="btn-guide">Je veux le guide →</button>
       </form>
@@ -1465,33 +1491,26 @@
       }
     }, { passive: true });
 
-    // ─── GUIDE FORM AJAX ───
+    // ─── GUIDE FORM — EmailJS ───
     const guideForm = document.getElementById('guideForm');
     const guideSuccess = document.getElementById('guide-success');
 
     guideForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = new FormData(guideForm);
+      const emailInput = guideForm.querySelector('input[type="email"]').value;
       const btn = guideForm.querySelector('.btn-guide');
       btn.textContent = 'Envoi…';
       btn.disabled = true;
 
       try {
-        const res = await fetch(guideForm.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
+        await emailjs.send('service_fe2f664', 'template_6h15bui', {
+          to_email: emailInput,
+          pdf_link: 'https://drive.google.com/file/d/1Hz6-Lp_qT0WFJA_vuuqPrIxwq9nZthxw/view?usp=drive_link'
         });
-
-        if (res.ok) {
-          guideForm.style.display = 'none';
-          guideSuccess.style.display = 'block';
-        } else {
-          btn.textContent = 'Erreur — réessaie';
-          btn.disabled = false;
-        }
+        guideForm.style.display = 'none';
+        guideSuccess.style.display = 'block';
       } catch {
-        btn.textContent = 'Erreur réseau — réessaie';
+        btn.textContent = 'Erreur — réessaie';
         btn.disabled = false;
       }
     });
