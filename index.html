@@ -1509,7 +1509,8 @@
         });
         guideForm.style.display = 'none';
         guideSuccess.style.display = 'block';
-      } catch {
+      } catch (err) {
+        console.error('EmailJS error:', err);
         btn.textContent = 'Erreur — réessaie';
         btn.disabled = false;
       }
