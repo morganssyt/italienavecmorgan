@@ -1045,6 +1045,157 @@
       margin-top: .5rem;
     }
 
+    /* ─── FORFAITS ─── */
+    #forfaits {
+      background: #faf7f0;
+      border-top: 1px solid #d4af6a;
+      border-bottom: 1px solid #d4af6a;
+    }
+
+    .forfaits-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .forfaits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .forfait-card {
+      background: var(--bianco);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      border: 1px solid #e8e0d0;
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+    }
+
+    .forfait-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.12);
+    }
+
+    .forfait-card.forfait-star {
+      background: var(--nero);
+      border-color: var(--verde);
+      transform: scale(1.04);
+    }
+
+    .forfait-card.forfait-star:hover {
+      transform: scale(1.06) translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,146,70,.3);
+    }
+
+    .forfait-badge {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--verde);
+      color: var(--bianco);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem 1rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .forfait-titre {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+      color: var(--nero);
+    }
+
+    .forfait-card.forfait-star .forfait-titre { color: var(--bianco); }
+
+    .forfait-prix {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--verde);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+
+    .forfait-prix span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--testo-chiaro);
+      font-family: var(--sans);
+    }
+
+    .forfait-card.forfait-star .forfait-prix span { color: rgba(255,255,255,.5); }
+
+    .forfait-sep {
+      height: 1px;
+      background: #e8e0d0;
+      margin: 1.2rem 0;
+    }
+
+    .forfait-card.forfait-star .forfait-sep { background: rgba(255,255,255,.1); }
+
+    .forfait-details {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .forfait-details li {
+      font-size: .9rem;
+      color: var(--testo-chiaro);
+      padding: .35rem 0;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .forfait-details li::before {
+      content: '✓';
+      color: var(--verde);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .forfait-card.forfait-star .forfait-details li { color: rgba(255,255,255,.7); }
+
+    .btn-forfait {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--verde);
+      color: var(--bianco);
+      font-weight: 600;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      padding: .85rem 1.5rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+
+    .btn-forfait:hover {
+      background: #007a38;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0,146,70,.4);
+    }
+
+    .forfait-note {
+      text-align: center;
+      color: var(--testo-chiaro);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: .95rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .forfaits-grid { grid-template-columns: 1fr; }
+      .forfait-card.forfait-star { transform: none; }
+    }
+
     /* ─── DIVIDER ─── */
     .section-divider {
       width: 48px;
@@ -1249,7 +1400,7 @@
 
         <div class="formule-card reveal reveal-delay-1">
           <div class="formule-nom">Découverte</div>
-          <div class="formule-prix">€35</div>
+          <div class="formule-prix">€30</div>
           <div class="formule-format">1 leçon</div>
           <p class="formule-pour">Pour tester l'approche</p>
           <ul class="formule-inclus">
@@ -1262,7 +1413,7 @@
         <div class="formule-card formule-star reveal reveal-delay-2">
           <div class="formule-badge">Le plus choisi ✨</div>
           <div class="formule-nom">Régulier</div>
-          <div class="formule-prix">€140<span>/mois</span></div>
+          <div class="formule-prix">€120<span>/mois</span></div>
           <div class="formule-format">4 leçons / mois</div>
           <p class="formule-pour">Pour progresser régulièrement</p>
           <ul class="formule-inclus">
@@ -1274,7 +1425,7 @@
 
         <div class="formule-card reveal reveal-delay-3">
           <div class="formule-nom">Intensif</div>
-          <div class="formule-prix">€280<span>/mois</span></div>
+          <div class="formule-prix">€240<span>/mois</span></div>
           <div class="formule-format">8 leçons / mois</div>
           <p class="formule-pour">Pour des résultats rapides</p>
           <ul class="formule-inclus">
@@ -1285,6 +1436,68 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ══ FORFAITS ══ -->
+  <section id="forfaits">
+    <div class="section-inner">
+      <div class="forfaits-header">
+        <div class="guide-tricolore reveal" style="margin-bottom:1.5rem;">
+          <div class="gt-bar gt-verde"></div>
+          <div class="gt-bar gt-bianco"></div>
+          <div class="gt-bar gt-rosso"></div>
+        </div>
+        <span class="section-label reveal">Mes formules</span>
+        <h2 class="section-title reveal reveal-delay-1">Choisis ton rythme</h2>
+        <div class="section-divider centered reveal reveal-delay-1"></div>
+      </div>
+
+      <div class="forfaits-grid">
+
+        <div class="forfait-card reveal reveal-delay-1">
+          <div class="forfait-titre">Leçon à l'unité</div>
+          <div class="forfait-prix">30€<span> / leçon</span></div>
+          <div class="forfait-sep"></div>
+          <ul class="forfait-details">
+            <li>1h · Thème libre</li>
+            <li>Adapté à ton niveau</li>
+            <li>Matériaux inclus</li>
+            <li>Correction personnalisée</li>
+          </ul>
+          <a href="#cta-final" class="btn-forfait">Candidater →</a>
+        </div>
+
+        <div class="forfait-card forfait-star reveal reveal-delay-2">
+          <div class="forfait-badge">⭐ Le plus choisi</div>
+          <div class="forfait-titre">4 leçons par mois</div>
+          <div class="forfait-prix">120€<span> / mois</span></div>
+          <div class="forfait-sep"></div>
+          <ul class="forfait-details">
+            <li>4h · Progression structurée</li>
+            <li>Suivi personnalisé</li>
+            <li>Matériaux inclus</li>
+            <li>Priorité de réservation</li>
+          </ul>
+          <a href="#cta-final" class="btn-forfait">Candidater →</a>
+        </div>
+
+        <div class="forfait-card reveal reveal-delay-3">
+          <div class="forfait-titre">8 leçons par mois</div>
+          <div class="forfait-prix">240€<span> / mois</span></div>
+          <div class="forfait-sep"></div>
+          <ul class="forfait-details">
+            <li>8h · Immersion totale</li>
+            <li>Pour aller vite</li>
+            <li>Matériaux inclus</li>
+            <li>Priorité absolue</li>
+          </ul>
+          <a href="#cta-final" class="btn-forfait">Candidater →</a>
+        </div>
+
+      </div>
+
+      <p class="forfait-note reveal">Première rencontre offerte — 25 minutes pour se connaître.</p>
     </div>
   </section>
 
